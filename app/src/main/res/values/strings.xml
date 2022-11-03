@@ -1,5 +1,32 @@
 <resources>
     <string name="app_name">IMDbT</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="txtv_user">Usuario</string>
+    <string name="txtv_password">Contraseña</string>
+    <string name="txtv_forget_pass">¿Olvidaste la contraseña?</string>
+    <string name="login">Login</string>
+    <string name="alternative_login">Ó podes ingresar con</string>
+    <string name="no_account">¿No tenes cuenta? <b>Regístrate</b></string>
+    <string name="invited"><b>Continuar como invitado</b></string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_home">Principal</string>
+    <string name="title_search">Buscar</string>
+    <string name="title_play">Reproducir</string>
+    <string name="logo_de_imdb">Logo de IMDb</string>
+    <string name="crear_una_cuenta">Crear una cuenta</string>
+    <string name="name_in_layout">Nombre</string>
+    <string name="email_in_layout">Correo electrónico</string>
+    <string name="password_in_layout">Contraseña</string>
+    <string name="btn_acept">Aceptar</string>
+    <string name="txt_password_required">La contraseña debe tener 8 caracteres*</string>
+    <string name="logo_imdb_description">Logo IMDb</string>
+    <string name="title_profile">Perfil</string>
+    <string name="bestSelection">Las mejores selecciones</string>
+    <string name="list_follow">Lista de seguimiento</string>
+    <string name="list_follow_description">Crea una lista de seguimineto para no perderte ninguna pelicula o serie de tv.</string>
+    <string name="bt_start_follow">Empieza tu lista de seguimiento</string>
+    <string name="recent_show">Vistas recientes</string>
+    <string name="recent_show_description">No has visitado ninguna página recientemente</string>
+    <string name="favorite_person">Personas Favoritas</string>
+    <string name="favorite_person_des">No tienes personas favoritas aún</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
