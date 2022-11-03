@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.imdbt.R
 import com.example.imdbt.data.UserProvider
 import com.example.imdbt.databinding.FragmentLoginBinding
@@ -54,7 +55,7 @@ class LoginFragment : Fragment() {
             val passw1 = UserProvider.userList[i].password
 
             if (user0 == user1 && passw1 == passw0) {
-                Toast.makeText(binding.txtUser.context, "Succes", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
                 break
             } else {
                 Toast.makeText(binding.txtUser.context, "Usuario Incorrecto", Toast.LENGTH_SHORT).show()
@@ -64,7 +65,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun goingToRegister() {
-        TODO("Not yet implemented")
+        findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
     }
 
     private fun saveInformation() {
