@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/dmont/AndroidStudioProjects/IMDbT/app/src/main/res/drawable/splash_background.xml" value="0.1" />
         <entry key="..\:/Users/dmont/AndroidStudioProjects/IMDbT/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/dmont/AndroidStudioProjects/IMDbT/app/src/main/res/layout/fragment_login.xml" value="0.1" />
       </map>
     </option>
   </component>
