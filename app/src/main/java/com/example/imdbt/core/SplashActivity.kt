@@ -22,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
         runBlocking {
             launch(Dispatchers.IO){
                 startMsg()
-                delay(15000)
+                delay(5000)
             }
 
         }
