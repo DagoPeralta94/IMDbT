@@ -13,10 +13,14 @@
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_movie_graph"
+            app:destination="@id/movie_graph" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.imdbt.ui.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
+    <include app:graph="@navigation/movie_graph" />
 </navigation>

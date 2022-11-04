@@ -57,7 +57,7 @@ class LoginFragment : Fragment() {
         val user = binding.txtUser.text.toString()
         val password = binding.txtPassword.text.toString()
         if(viewModel.isLoginTrue(user, password)){
-            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_movie_graph)
         }else{
             Toast.makeText(binding.login1.context, "Usuario o contraseña Incorrecta", Toast.LENGTH_SHORT).show()
         }
