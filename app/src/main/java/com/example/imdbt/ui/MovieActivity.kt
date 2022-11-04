@@ -43,19 +43,5 @@ class MovieActivity : AppCompatActivity() {
             false
         })
 
-
-
-        /* val navView: BottomNavigationView = binding.buttonNavigation
-        //val navControllerB = binding.nav_host_fragment_container
-        val navController = findNavController(R.id.nav_host_fragment_container)
-
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.homeMovieFragment, R.id.searchMovieFragment, R.id.playMovieFragment, R.id.profileMovieFragment
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
-*/
     }
 }
