@@ -31,7 +31,7 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
-        return binding.root
+                return binding.root
     }
 
 
