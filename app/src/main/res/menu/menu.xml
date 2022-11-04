@@ -2,22 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/home"
+        android:id="@+id/homeMovieFragment"
         android:title="Home"
         android:icon="@drawable/ic_home_black_24dp"
         />
     <item
-        android:id="@+id/search"
+        android:id="@+id/searchMovieFragment"
         android:title="Search"
         android:icon="@drawable/ic_baseline_search_24"
         />
     <item
-        android:id="@+id/play"
+        android:id="@+id/playMovieFragment"
         android:title="Play"
         android:icon="@drawable/ic_baseline_play_arrow_24"
         />
     <item
-        android:id="@+id/profile"
+        android:id="@+id/profileMovieFragment"
         android:title="Profile"
         android:icon="@drawable/ic_baseline_person_24"
         />

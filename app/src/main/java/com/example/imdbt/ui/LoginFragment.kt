@@ -1,5 +1,6 @@
 package com.example.imdbt.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,7 +13,9 @@ import com.example.imdbt.R
 import com.example.imdbt.data.UserProvider
 import com.example.imdbt.databinding.FragmentLoginBinding
 import com.example.imdbt.presentation.MovieViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 
 class LoginFragment : Fragment() {
@@ -57,7 +60,7 @@ class LoginFragment : Fragment() {
         val user = binding.txtUser.text.toString()
         val password = binding.txtPassword.text.toString()
         if(viewModel.isLoginTrue(user, password)){
-            findNavController().navigate(R.id.action_loginFragment_to_movie_graph)
+            startActivity(Intent(binding.login1.context, MovieActivity::class.java))
         }else{
             Toast.makeText(binding.login1.context, "Usuario o contraseña Incorrecta", Toast.LENGTH_SHORT).show()
         }

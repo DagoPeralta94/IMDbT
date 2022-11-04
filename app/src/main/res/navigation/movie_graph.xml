@@ -10,4 +10,19 @@
         android:name="com.example.imdbt.ui.HomeMovieFragment"
         android:label="fragment_home_movie"
         tools:layout="@layout/fragment_home_movie" />
+    <fragment
+        android:id="@+id/searchMovieFragment"
+        android:name="com.example.imdbt.ui.SearchMovieFragment"
+        android:label="fragment_search_movie"
+        tools:layout="@layout/fragment_search_movie" />
+    <fragment
+        android:id="@+id/playMovieFragment"
+        android:name="com.example.imdbt.ui.PlayMovieFragment"
+        android:label="fragment_play_movie"
+        tools:layout="@layout/fragment_play_movie" />
+    <fragment
+        android:id="@+id/profileMovieFragment"
+        android:name="com.example.imdbt.ui.ProfileMovieFragment"
+        android:label="fragment_profile_movie"
+        tools:layout="@layout/fragment_profile_movie" />
 </navigation>
