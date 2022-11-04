@@ -20,8 +20,7 @@ class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: MovieViewModel
-    private val user = binding.txtUser.text.toString()
-    private val password = binding.txtPassword.text.toString()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,6 +54,8 @@ class LoginFragment : Fragment() {
     }
 
     private fun goingToNavigation() {
+        val user = binding.txtUser.text.toString()
+        val password = binding.txtPassword.text.toString()
         if(viewModel.isLoginTrue(user, password)){
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }else{

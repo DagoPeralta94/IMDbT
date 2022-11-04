@@ -27,7 +27,7 @@ class SplashActivity : AppCompatActivity() {
 
         }
     }
-    fun startMsg() {
+    private fun startMsg() {
         println("Comenzando corrutina -${Thread.currentThread().name}-")
     }
 
