@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -20,28 +21,26 @@ class MovieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMovieBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        replaceFragment(HomeMovieFragment())
 
-        binding.buttonNavigation.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item->
+        binding.buttonNavigation.setOnItemSelectedListener { item->
             when (item.itemId) {
-                R.id.homeMovieFragment -> {
-                    Toast.makeText(binding.root.context, "HOME", Toast.LENGTH_SHORT).show()
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.searchMovieFragment -> {
-                    Toast.makeText(binding.root.context, "SEARCH", Toast.LENGTH_SHORT).show()
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.playMovieFragment -> {
-                    Toast.makeText(binding.root.context, "PLAY", Toast.LENGTH_SHORT).show()
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.profileMovieFragment -> {
-                    Toast.makeText(binding.root.context, "PROFILE", Toast.LENGTH_SHORT).show()
-                    return@OnNavigationItemSelectedListener true
-                }
+                R.id.homeMovieFragment -> replaceFragment(HomeMovieFragment())
+                R.id.searchMovieFragment -> replaceFragment(SearchMovieFragment())
+                R.id.playMovieFragment -> replaceFragment(PlayMovieFragment())
+                R.id.profileMovieFragment -> replaceFragment(ProfileMovieFragment())
             }
-            false
-        })
+            true
+        }
+
+    }
+    private fun replaceFragment(fragment : Fragment){
+
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.nav_host_fragment_container,fragment)
+        fragmentTransaction.commit()
+
 
     }
 }
