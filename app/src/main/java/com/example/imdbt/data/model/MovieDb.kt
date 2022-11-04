@@ -1,6 +1,6 @@
 package com.example.imdbt.data.model
 
-data class Movie(
+data class MovieDb(
     val id: Int = -1,
     val adult: Boolean = false,
     val backdrop_path: String = "",
