@@ -5,23 +5,34 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.imdbt.R
+import com.example.imdbt.application.AppConstants
+import com.example.imdbt.core.adapter.MovieAdapter
+import com.example.imdbt.data.model.MovieDb
+import com.example.imdbt.data.model.MovieDbClient
 import com.example.imdbt.databinding.ActivityMovieBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.*
 
 class MovieActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMovieBinding
+    private lateinit var topMovies: List<MovieDb>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMovieBinding.inflate(layoutInflater)
         setContentView(binding.root)
         replaceFragment(HomeMovieFragment())
+        updateData()
+
 
         binding.buttonNavigation.setOnItemSelectedListener { item->
             when (item.itemId) {
@@ -43,4 +54,18 @@ class MovieActivity : AppCompatActivity() {
 
 
     }
+
+    private fun updateData() {
+        lifecycleScope.launch {
+            var topMovies = MovieDbClient.service.listTopRatedMovies(AppConstants.API_KEY)
+            var i = 0
+            var movieList: MutableList<String> = mutableListOf()
+            while (i < topMovies.results.size) {
+                movieList.add(topMovies.results[i].title)
+                println(movieList)
+                i += 1
+            }
+        }
+    }
+
 }

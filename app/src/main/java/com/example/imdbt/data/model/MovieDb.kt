@@ -1,10 +1,10 @@
 package com.example.imdbt.data.model
 
 data class MovieDb(
-    val id: Int = -1,
     val adult: Boolean = false,
     val backdrop_path: String = "",
-    val genre_ids: List<Int> = listOf(),
+    //val genre_ids: List<Int> = listOf(),
+    val id: Int = -1,
     val original_language: String = "",
     val original_title: String = "",
     val overview: String = "",
