@@ -23,18 +23,21 @@ class SearchMovieFragment : Fragment() {
 
     private var _binding: FragmentSearchMovieBinding? = null
     private val binding get() = _binding!!
-    private var topMovies: List<MovieDbResult> = emptyList()
     lateinit var topMoviesList: List<MovieDb>
 
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             lifecycleScope.launch {
-                var topMovies = MovieDbClient.service.listTopRatedMovies(AppConstants.API_KEY)
-                topMoviesList = topMovies.results
+                withContext(Dispatchers.IO){
+                    var topMovies = MovieDbClient.service.listTopRatedMovies(AppConstants.API_KEY)
+                    topMoviesList = topMovies.results
+                }
                 withContext(Dispatchers.Main){
-                    binding.rcMovies.layoutManager = LinearLayoutManager(binding.rcMovies.context, LinearLayoutManager.VERTICAL, false)
-                    binding.rcMovies.adapter = MovieAdapter(topMoviesList)
-                    MovieAdapter(topMoviesList).notifyDataSetChanged()
+                    with(binding){
+                        rcMovies.layoutManager = LinearLayoutManager(rcMovies.context, LinearLayoutManager.VERTICAL, false)
+                        rcMovies.adapter = MovieAdapter(topMoviesList)
+                        MovieAdapter(topMoviesList).notifyDataSetChanged()
+                    }
                 }
             }
         }
@@ -46,10 +49,5 @@ class SearchMovieFragment : Fragment() {
         ): View? {
             _binding = FragmentSearchMovieBinding.inflate(inflater, container, false)
             return binding.root
-            lifecycleScope.launch{
-
-
-            }
-
         }
     }
