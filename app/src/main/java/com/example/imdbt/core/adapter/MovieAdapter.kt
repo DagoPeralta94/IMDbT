@@ -19,4 +19,9 @@ class MovieAdapter(var movieBestList: List<MovieDb>): RecyclerView.Adapter<Movie
     }
 
     override fun getItemCount(): Int = movieBestList.size
+
+    fun updateMovie(movieBestList: List<MovieDb>){
+        this.movieBestList = movieBestList
+        notifyDataSetChanged()
+    }
 }

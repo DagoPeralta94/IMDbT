@@ -7,17 +7,29 @@
     tools:context=".ui.SearchMovieFragment"
     android:orientation="vertical">
 
-    <SearchView
-        android:id="@+id/search_id"
-        style="@style/Platform.MaterialComponents"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/searh_id"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:barrierMargin="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:background="@color/gray_imdb3"
-        android:focusableInTouchMode="true"
-        android:layout_margin="20dp"/>
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="5dp"
+        android:hint="@string/txtv_search"
+        android:inputType="textEmailAddress"
+        android:singleLine="true"
+        app:startIconDrawable="@drawable/ic_baseline_search_24">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/txt_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:imeOptions="actionDone"
+        android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcMovies"

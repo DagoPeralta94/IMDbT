@@ -1,10 +1,12 @@
 package com.example.imdbt.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.imdbt.application.AppConstants
@@ -29,21 +31,38 @@ class SearchMovieFragment : Fragment() {
             super.onCreate(savedInstanceState)
             lifecycleScope.launch {
                 withContext(Dispatchers.IO){
-                    var topMovies = MovieDbClient.service.listTopRatedMovies(AppConstants.API_KEY)
-                    topMoviesList = topMovies.results
+                    launchData()
                 }
                 withContext(Dispatchers.Main){
-                    with(binding){
-                        rcMovies.layoutManager = LinearLayoutManager(rcMovies.context, LinearLayoutManager.VERTICAL, false)
-                        rcMovies.adapter = MovieAdapter(topMoviesList)
-                        MovieAdapter(topMoviesList).notifyDataSetChanged()
+                    launchRecyclerView()
+                    searchMovie()
                     }
                 }
             }
+
+    private fun launchRecyclerView() {
+        with(binding){
+            rcMovies.layoutManager = LinearLayoutManager(rcMovies.context, LinearLayoutManager.VERTICAL, false)
+            rcMovies.adapter = MovieAdapter(topMoviesList)
+            MovieAdapter(topMoviesList).notifyDataSetChanged()
+    }
+}
+
+    private suspend fun launchData() {
+        var topMovies = MovieDbClient.service.listTopRatedMovies(AppConstants.API_KEY)
+        topMoviesList = topMovies.results
+    }
+
+    private fun searchMovie() {
+        binding.txtSearch.addTextChangedListener { movieFilter ->
+            val movieFiltered = topMoviesList.filter { movie -> movie.title.lowercase().contains(movieFilter.toString().lowercase()) }
+            binding.rcMovies.adapter = MovieAdapter(movieFiltered)
+            MovieAdapter(movieFiltered).notifyDataSetChanged()
         }
+    }
 
 
-        override fun onCreateView(
+    override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
         ): View? {

@@ -82,5 +82,4 @@ class HomeMovieFragment : Fragment() {
         topMoviesList = topMovies.results
     }
 
-
 }
