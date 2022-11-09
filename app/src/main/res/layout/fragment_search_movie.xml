@@ -16,6 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@color/gray_imdb3"
+        android:focusableInTouchMode="true"
         android:layout_margin="20dp"/>
 
     <androidx.recyclerview.widget.RecyclerView

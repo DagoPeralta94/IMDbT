@@ -12,6 +12,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.imdbt.R
 import com.example.imdbt.application.AppConstants
+import com.example.imdbt.core.adapter.BestMoviesAdapter
+import com.example.imdbt.core.adapter.HomeMovieAdapter
 import com.example.imdbt.core.adapter.MovieAdapter
 import com.example.imdbt.data.model.MovieDb
 import com.example.imdbt.data.model.MovieDbClient
@@ -42,21 +44,43 @@ class HomeMovieFragment : Fragment() {
         super.onCreate(savedInstanceState)
         lifecycleScope.launch {
             withContext(Dispatchers.IO) {
-                var topMovies = MovieDbClient.service.listTopRatedMovies(AppConstants.API_KEY)
-                topMoviesList = topMovies.results
+                launchData()
             }
             withContext(Dispatchers.Main) {
-                with(binding) {
-                    rvPortadaMovie.layoutManager = LinearLayoutManager(
-                        rvPortadaMovie.context,
-                        LinearLayoutManager.VERTICAL,
-                        false
-                    )
-                    rvPortadaMovie.adapter = MovieAdapter(topMoviesList)
-                    MovieAdapter(topMoviesList).notifyDataSetChanged()
-                }
+                launchRecyclerViewMain()
+                launchRecyclerViewBestMovies()
             }
         }
     }
+
+    private fun launchRecyclerViewBestMovies() {
+        with(binding) {
+            rvBestSelections.layoutManager = LinearLayoutManager(
+                rvBestSelections.context,
+                LinearLayoutManager.HORIZONTAL,
+                false
+            )
+            rvBestSelections.adapter = BestMoviesAdapter(topMoviesList)
+            BestMoviesAdapter(topMoviesList).notifyDataSetChanged()
+        }
+    }
+
+    private fun launchRecyclerViewMain() {
+        with(binding) {
+            rvPortadaMovie.layoutManager = LinearLayoutManager(
+                rvPortadaMovie.context,
+                LinearLayoutManager.HORIZONTAL,
+                false
+            )
+            rvPortadaMovie.adapter = HomeMovieAdapter(topMoviesList)
+            MovieAdapter(topMoviesList).notifyDataSetChanged()
+        }
+    }
+
+    private suspend fun launchData() {
+        var topMovies = MovieDbClient.service.listTopRatedMovies(AppConstants.API_KEY)
+        topMoviesList = topMovies.results
+    }
+
 
 }
