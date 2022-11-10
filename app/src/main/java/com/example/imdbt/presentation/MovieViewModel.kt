@@ -36,4 +36,9 @@ class MovieViewModel: ViewModel() {
         }
         return isLogin
     }
+
+    fun onNavigationRegister(){
+
+    }
+
 }
