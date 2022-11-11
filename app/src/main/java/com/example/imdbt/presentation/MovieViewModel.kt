@@ -24,21 +24,11 @@ class MovieViewModel: ViewModel() {
     private val _txtPasswordVM = MutableLiveData<String>()
     val txtPasswordVM: MutableLiveData<String> = _txtPasswordVM
 
-    fun isLoginTrue(user: String, password: String): Boolean {
-        var i = 0
-
-        for (users in UserProvider.userList) {
-
-            val userProv = UserProvider.userList[i].user
-            val passProv = UserProvider.userList[i].password
-
-            isLogin = user == userProv && passProv == password
+    fun isLoginTrue(user1: String, password1: String): Boolean {
+        UserProvider.userList.forEach {
+            isLogin = return it.user.contains(user1) && it.password.contains(password1)
         }
         return isLogin
-    }
-
-    fun onNavigationRegister(){
-
     }
 
 }
