@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.imdbt.application.AppConstants
 import com.example.imdbt.core.adapter.BestMoviesAdapter
@@ -69,8 +71,8 @@ class HomeMovieFragment : Fragment() {
                 LinearLayoutManager.HORIZONTAL,
                 false
             )
-            rvBestSelections.adapter = BestMoviesAdapter(topMoviesList)
-            BestMoviesAdapter(topMoviesList).notifyDataSetChanged()
+            rvBestSelections.adapter = BestMoviesAdapter(topMoviesList) { onItemSelected(it) }
+            BestMoviesAdapter(topMoviesList) { onItemSelected(it) }.notifyDataSetChanged()
         }
     }
 
@@ -91,6 +93,7 @@ class HomeMovieFragment : Fragment() {
             topMoviesList = topMovies.results
     }
 
-
-
+    private fun onItemSelected(listMovie: MovieDb){
+        Toast.makeText(binding.rvPortadaMovie.context, listMovie.title, Toast.LENGTH_SHORT).show()
+        }
 }

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.imdbt.application.AppConstants
 import com.example.imdbt.core.adapter.MovieAdapter
@@ -69,4 +70,11 @@ class SearchMovieFragment : Fragment() {
             _binding = FragmentSearchMovieBinding.inflate(inflater, container, false)
             return binding.root
         }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
+
+
     }

@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import com.example.imdbt.R
-import com.example.imdbt.databinding.FragmentPlayMovieBinding
+import com.example.imdbt.databinding.FragmentDetailsMovieBinding
 
 
-class PlayMovieFragment : Fragment() {
+class DetailsMovieFragment : Fragment() {
 
-    private var _binding : FragmentPlayMovieBinding? = null
+    private var _binding : FragmentDetailsMovieBinding? = null
     private val binding get()  = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,8 +24,9 @@ class PlayMovieFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentPlayMovieBinding.inflate(inflater, container, false)
-                return binding.root
+        _binding = FragmentDetailsMovieBinding.inflate(inflater, container, false)
+        return binding.root
     }
+
 
 }
