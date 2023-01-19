@@ -30,4 +30,8 @@
     <string name="favorite_person_des">No tienes personas favoritas aún</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="txtv_search">Buscar</string>
+    <string name="password_in_layout_repeat">Validar contraseña</string>
+    <string name="title_check_email">Verificación de email</string>
+    <string name="subtitle_check_email">Para completar tu registro. Por favor verifica tu email y entonces dar click en continuar</string>
+    <string name="continue_check_email">Continuar</string>
 </resources>

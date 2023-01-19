@@ -21,6 +21,18 @@
         android:id="@+id/registerFragment"
         android:name="com.example.imdbt.ui.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_movie_graph"
+            app:destination="@id/movie_graph" />
+        <action
+            android:id="@+id/action_registerFragment_to_verifyEmailFragment"
+            app:destination="@id/verifyEmailFragment" />
+    </fragment>
     <include app:graph="@navigation/movie_graph" />
+    <fragment
+        android:id="@+id/verifyEmailFragment"
+        android:name="com.example.imdbt.ui.VerifyEmailFragment"
+        android:label="fragment_verify_email"
+        tools:layout="@layout/fragment_verify_email" />
 </navigation>

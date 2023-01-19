@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "502859954734",
+    "project_id": "imdb-e8312",
+    "storage_bucket": "imdb-e8312.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502859954734:android:18e4fb6f6c025b222cbdbf",
+        "android_client_info": {
+          "package_name": "com.example.imdbt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502859954734-v8gfppi68hp93uusc8t87kd7j61b88s0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.imdbt",
+            "certificate_hash": "c25930cf94894947846a3135d803bff5d70eeceb"
+          }
+        },
+        {
+          "client_id": "502859954734-n7kfmv7coe2n7lt3u040peenhocdovpp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7_sF9DFVIuUCtSmBm9m62Z8A0VJjebw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "502859954734-n7kfmv7coe2n7lt3u040peenhocdovpp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
