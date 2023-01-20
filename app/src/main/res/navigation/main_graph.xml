@@ -34,5 +34,12 @@
         android:id="@+id/verifyEmailFragment"
         android:name="com.example.imdbt.ui.VerifyEmailFragment"
         android:label="fragment_verify_email"
-        tools:layout="@layout/fragment_verify_email" />
+        tools:layout="@layout/fragment_verify_email" >
+        <action
+            android:id="@+id/action_verifyEmailFragment_to_movie_graph2"
+            app:destination="@id/movie_graph" />
+        <action
+            android:id="@+id/action_verifyEmailFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>
